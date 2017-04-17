@@ -1,9 +1,12 @@
-
 # react-native-paypal-wrapper
 
 React Native PayPal wrapper for iOS and Android
 
 ## Getting started
+
+`$ npm install react-native-paypal-wrapper --save`
+
+or
 
 `$ yarn add react-native-paypal-wrapper`
 
@@ -11,20 +14,21 @@ React Native PayPal wrapper for iOS and Android
 
 `$ react-native link react-native-paypal-wrapper`
 
-Extra steps for iOS 🙄 [see here](https://github.com/paypal/PayPal-ios-SDK#with-or-without-cocoapods)
+(P.S. no need to add extra dependencies in Podfile, as `react-native link` already did the linking)
 
 ## Usage
 ```javascript
 import PayPal from 'react-native-paypal-wrapper';
 
 // 3 env available: NO_NETWORK, SANDBOX, PRODUCTION
-PayPal.initialize(PayPal.NO_NETWORK, "<your-client-id>");
+PayPal.initialize(PayPal.NO_NETWORK, "<your-paypal-client-id>");
 PayPal.pay({
-  price: '40.70',
-  currency: 'MYR',
-  description: 'Your description goes here',
-}).then(confirm => console.log(confirm))
-  .catch(error => console.log(error));
+    price: '40.70',
+    currency: 'MYR',
+    description: 'Your description goes here',
+})
+    .then(confirm => console.log(confirm))
+    .catch(error => console.log(error));
 ```
 
 ### Disclaimer
